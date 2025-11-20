@@ -1,28 +1,27 @@
 import React from "react";
-import { ActivityIndicator, StyleSheet } from "react-native";
-import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import LoginScreen from "./screens/LoginScreen";
+import RegisterScreen from "./screens/RegisterScreen";
+import HomeScreen from "./screens/HomeScreen";
 
-const App = () => (
-  <SafeAreaProvider>
-    <SafeAreaView style={[styles.container, styles.horizontal]}>
-      <ActivityIndicator />
-      <ActivityIndicator size="large" />
-      <ActivityIndicator size="small" color="#0000ff" />
-      <ActivityIndicator size="large" color="#00ff00" />
-    </SafeAreaView>
-  </SafeAreaProvider>
-);
+const Stack = createNativeStackNavigator();
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-  },
-  horizontal: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    padding: 10,
-  },
-});
+const App = () => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="Login"
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Register" component={RegisterScreen} />
+        <Stack.Screen name="Home" component={HomeScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
 
 export default App;
