@@ -28,8 +28,6 @@ const LoginScreen = ({ navigation }) => {
       const response = await login(email, password);
 
       if (response.success) {
-        Alert.alert('Success', 'Login successful!');
-        // Navigate to home screen
         navigation.navigate('Home', { user: response.user });
       } else {
         Alert.alert('Error', response.message || 'Login failed');

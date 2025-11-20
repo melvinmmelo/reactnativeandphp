@@ -2,7 +2,7 @@
 // For Android Emulator: use 10.0.2.2
 // For iOS Simulator: use localhost
 // For Physical Device: use your computer's local IP (e.g., 192.168.1.xxx)
-const API_BASE_URL = "http://10.0.2.2:80/phpauthsystem/api";
+const API_BASE_URL = "http://10.0.2.2/phpauthsystem/api";
 /**
  * Login user with email and password
  * @param {string} email - User email
